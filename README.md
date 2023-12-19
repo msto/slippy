@@ -4,13 +4,31 @@
 linter that checks Snakefiles adhere to Fulcrum Genomics guidelines.
 
 ## Installation
-TODO
+
+```sh
+git clone https://github.com/msto/slippy.git
+pip install -e slippy
+```
 
 ## Usage
-TODO
+
+```sh
+$ slippy -h
+usage: slippy [-h] -s SNAKEFILE [-i | --include-all | --no-include-all]
+
+Slippy is a simple snakemake linter.
+
+options:
+  -h, --help            show this help message and exit
+  -s SNAKEFILE, --snakefile SNAKEFILE
+                        Snakefile to lint.
+  -i, --include-all, --no-include-all
+                        Lint the all rule.
+                        (default: False)
+```
 
 ## Checks
-TODO
+TODO enumerate the lint checks `slippy` enforces
 
 ## Why "slippy"?
 
