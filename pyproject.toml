@@ -1,0 +1,33 @@
+[project]
+name = "slippy"
+description = "A simple Snakemake linter"
+version = "0.1.0"
+readme = "README.md"
+license = {file = "LICENSE"}
+
+authors = [
+  {name = "Matt Stone", email = "matt@fulcrumgenomics.com"} 
+]
+
+dependencies = [
+  "defopt",
+  "snakemake",
+]
+
+[project.scripts]
+slippy = "slippy:main.main"
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "isort",
+  "flake8",
+  "mypy",
+  "ipython",
+  "ipdb",
+  "pytest",
+  "tox",
+  "coverage"
+]
+
+

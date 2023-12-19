@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from enum import Enum, unique
+from enum import Enum
+from enum import unique
 
 from snakemake.rules import Rule
 
@@ -17,5 +18,5 @@ class Lint:
     filename: str
 
 
-def lint(rule: Rule) -> list[Lint]:
-    pass
+def lint_rule(rule: Rule) -> list[Lint]:
+    return []

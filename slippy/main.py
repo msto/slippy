@@ -1,13 +1,17 @@
 #!/usr/bin/env python
 
+import sys
 from pathlib import Path
+from typing import Optional
 
 import defopt
-from snakemake.rules import Rule
 from snakemake.workflow import Workflow
 
+from slippy.lint import Lint
+from slippy.lint import lint_rule
 
-def main(
+
+def slippy(
     *,
     snakefile: Path,
     include_all: bool = False,
@@ -23,15 +27,12 @@ def main(
     workflow = Workflow(snakefile=snakefile)
     workflow.include(snakefile)
 
-    import pdb
-    pdb.set_trace()
-
     # Lint each rule, collecting as we go
     lints: list[Lint] = []
     for rule in workflow.rules:
-        # workflow.main_snakefile
-        pass
+        lints += lint_rule(rule)
 
 
-if __name__ == "__main__":
-    defopt.run(main)
+def main(argv: Optional[list[str]] = None) -> None:
+    argv = sys.argv[1:] if argv is None else argv
+    defopt.run(slippy, argv=argv)
