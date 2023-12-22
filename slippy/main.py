@@ -7,7 +7,7 @@ from typing import Optional
 import defopt
 from snakemake.workflow import Workflow
 
-from slippy.lint import Lint
+from slippy.diagnostic import SlippyDiagnostic
 from slippy.lint import lint_rule
 
 
@@ -28,9 +28,9 @@ def slippy(
     workflow.include(snakefile)
 
     # Lint each rule, collecting as we go
-    lints: list[Lint] = []
+    diagnostics: list[SlippyDiagnostic] = []
     for rule in workflow.rules:
-        lints += lint_rule(rule)
+        diagnostics += lint_rule(rule)
 
 
 def main(argv: Optional[list[str]] = None) -> None:
