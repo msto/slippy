@@ -1,3 +1,4 @@
+import linecache
 from pathlib import Path
 
 from snakemake.rules import Rule
@@ -45,3 +46,47 @@ def get_rule_lineno(rule: Rule) -> int:
     """
 
     return rule.workflow.linemaps[rule.snakefile][rule.lineno]
+
+
+# TODO: use enum instead of str?
+def get_directive_lineno(rule: Rule, directive: str) -> int:
+    """
+    Get the line number of a specific directive.
+
+    This function obtains the line number at which the rule definition begins, which is cached in
+    each `Rule` object. It then uses linecache to find the next instance of the desired directive.
+    If the directive cannot be found before the end of the rule declaration, a `ValueError` is
+    raised.
+
+    Args:
+        rule: A parsed rule declaration
+        directive: The directive in question
+
+    Returns:
+        The line number of the directive in the main Snakefile.
+
+    Raises:
+        ValueError: if the directive cannot be found within the rule declaration.
+    """
+
+    snakefile = rule.workflow.main_snakefile
+    lineno = get_rule_lineno(rule)
+
+    while True:
+        lineno += 1
+        line = linecache.getline(snakefile, lineno)
+
+        # Either we've reached a gap between rules or we've reached the end of the file.
+        if line == "":
+            raise ValueError(f"Directive {directive} could not be found in rule {rule.name}")
+
+        # Cover the unlikely case where the user didn't include a blank line between rule names
+        if line.startswith("rule"):
+            new_rule_name = line.rstrip(":").split()[-1]
+            raise ValueError(
+                f"Encountered new rule {new_rule_name} before finding "
+                f"directive {directive} in rule {rule.name}"
+            )
+
+        if line.strip() == f"{directive}:":
+            return lineno
