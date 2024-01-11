@@ -21,4 +21,4 @@ def test_get_rule_lineno(test_workflow: Workflow) -> None:
 
     assert get_rule_lineno(rules["all"]) == 2
     assert get_rule_lineno(rules["good_rule"]) == 7
-    assert get_rule_lineno(rules["rule_with_no_docstring"]) == 22
+    assert get_rule_lineno(rules["rule_with_no_docstring"]) == 23

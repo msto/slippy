@@ -19,6 +19,7 @@ rule good_rule:
         ) &> {log}
         """
 
+
 rule rule_with_no_docstring:
     input:
         foo="foo.txt"
