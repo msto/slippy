@@ -4,25 +4,31 @@ rule all:
         "test.txt"
 
 
-rule make_test:
+rule good_rule:
     """test docstring"""
+    input:
+        foo="foo.txt"
     output:
-        "test.txt"
+        bar="bar.txt"
+    log:
+        "logs/good_rule.log"
     shell:
         """
         (
-        echo "test" > {output};
+        cat {input.foo} > {output.bar};
         ) &> {log}
         """
 
-rule make_test2:
+rule rule_with_no_docstring:
+    input:
+        foo="foo.txt"
     output:
-        out="test2.txt"
+        bar="bar.txt"
     log:
-        "logs/make_test2.log"
+        "logs/good_rule.log"
     shell:
         """
         (
-        echo "test2" > {output};
+        cat {input.foo} > {output.bar};
         ) &> {log}
         """
