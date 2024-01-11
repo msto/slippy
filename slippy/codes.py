@@ -8,4 +8,4 @@ from enum import unique
 
 @unique
 class SlippyCode(Enum):
-    NO_DOCSTRING = "rule {0} has no docstring"
+    NO_DOCSTRING = "no_docstring"
