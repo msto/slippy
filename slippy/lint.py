@@ -1,8 +1,11 @@
+import linecache
+
 from snakemake.rules import Rule
 
 from .codes import SlippyCode
 from .diagnostic import CodeRange
 from .diagnostic import SlippyDiagnostic
+from .utils import get_directive_lineno
 from .utils import get_rule_lineno
 
 
@@ -45,10 +48,38 @@ def _check_rule_has_docstring(rule: Rule) -> SlippyDiagnostic | None:
     )
 
 
-def _check_rule_is_shell(rule: Rule) -> SlippyDiagnostic | None:
+def _check_rule_has_shell(rule: Rule) -> SlippyDiagnostic | None:
     """
     Check that a rule has a `shell` block, and does not define a `run` or `script` block instead.
     """
+
+    if rule.shellcmd is not None:
+        return None
+
+    if rule.script is not None:
+        directive = "script"
+    elif rule.run_func is not None:
+        directive = "run"
+    else:
+        raise ValueError(f"Rule {rule.name} does not declare a `shell`, `run`, or `script` block.")
+
+    lineno = get_directive_lineno(rule=rule, directive=directive)
+
+    # Account for non-standard indendation when identifying the start position of the directive
+    line = linecache.getline(rule.workflow.main_snakefile, lineno)
+    start_character = len(line) - len(line.lstrip()) + 1
+    end_character = start_character + len(directive)
+
+    return SlippyDiagnostic(
+        range=CodeRange(
+            start_line=lineno,
+            start_character=start_character,
+            end_line=lineno,
+            end_character=end_character,
+        ),
+        message=f"rule {rule} declares a `{directive}` block instead of a `shell` block",
+        code=SlippyCode.NO_SHELL.value,
+    )
 
 
 def _check_rule_inputs_are_named(rule: Rule) -> SlippyDiagnostic | None:
