@@ -58,6 +58,9 @@ def get_directive_lineno(rule: Rule, directive: str) -> int:
     If the directive cannot be found before the end of the rule declaration, a `ValueError` is
     raised.
 
+    Note that this function assumes that all rules are defined in the main Snakefile, with no
+    subworkflows or rule imports.
+
     Args:
         rule: A parsed rule declaration
         directive: The directive in question
@@ -69,6 +72,7 @@ def get_directive_lineno(rule: Rule, directive: str) -> int:
         ValueError: if the directive cannot be found within the rule declaration.
     """
 
+    # TODO: verify the rule is defined in the main Snakefile
     snakefile = rule.workflow.main_snakefile
     lineno = get_rule_lineno(rule)
 
