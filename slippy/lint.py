@@ -22,27 +22,27 @@ def _check_rule_has_docstring(rule: Rule) -> SlippyDiagnostic | None:
     Check that a rule has a docstring.
     """
 
-    if rule.docstring is None:
-        lineno = get_rule_lineno(rule)
-
-        # Taking a shortcut for now to avoid parsing the line in question, but this should be
-        # refactored to use `linecache`.
-        # A rule declaration includes "rule " (5 characters), the name of the rule, and a trailing
-        # colon (1 character).
-        line_length = len(rule.name) + 6
-
-        return SlippyDiagnostic(
-            range=CodeRange(
-                start_line=lineno,
-                start_character=1,
-                end_line=lineno,
-                end_character=line_length,
-            ),
-            message=f"rule {rule} has no docstring",
-            code=SlippyCode.NO_DOCSTRING.value,
-        )
-    else:
+    if rule.docstring is not None:
         return None
+
+    lineno = get_rule_lineno(rule)
+
+    # Taking a shortcut for now to avoid parsing the line in question, but this should be
+    # refactored to use `linecache`.
+    # A rule declaration includes "rule " (5 characters), the name of the rule, and a trailing
+    # colon (1 character).
+    line_length = len(rule.name) + 6
+
+    return SlippyDiagnostic(
+        range=CodeRange(
+            start_line=lineno,
+            start_character=1,
+            end_line=lineno,
+            end_character=line_length,
+        ),
+        message=f"rule {rule} has no docstring",
+        code=SlippyCode.NO_DOCSTRING.value,
+    )
 
 
 def _check_rule_is_shell(rule: Rule) -> SlippyDiagnostic | None:
