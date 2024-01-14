@@ -1,5 +1,3 @@
-import linecache
-
 from snakemake.rules import Rule
 
 from .codes import SlippyCode
@@ -67,6 +65,26 @@ def _check_rule_has_shell(rule: Rule) -> SlippyDiagnostic | None:
         range=get_directive_range(rule=rule, directive=directive),
         message=f"rule {rule} declares a `{directive}` block instead of a `shell` block",
         code=SlippyCode.NO_SHELL.value,
+    )
+
+
+def _check_rule_has_log(rule: Rule) -> SlippyDiagnostic | None:
+    """
+    Check that a rule declares a log.
+    """
+
+    # We only run this lint on rules with a shell block - other rules fail `_check_rule_has_shell()`
+    if rule.shellcmd is None:
+        return None
+
+    # TODO: flag multiple logs? I don't know why this is declared as a namedlist
+    if len(rule.log) > 0:
+        return None
+
+    return SlippyDiagnostic(
+        range=get_directive_range(rule=rule, directive="shell"),
+        message=f"rule {rule} has no log",
+        code=SlippyCode.NO_LOG.value,
     )
 
 

@@ -4,6 +4,7 @@ from slippy.codes import SlippyCode
 from slippy.diagnostic import CodeRange
 from slippy.diagnostic import SlippyDiagnostic
 from slippy.lint import _check_rule_has_docstring
+from slippy.lint import _check_rule_has_log
 from slippy.lint import _check_rule_has_shell
 
 
@@ -47,3 +48,20 @@ def test_check_rule_has_shell(
     )
     bad_rule = test_workflow.get_rule("rule_with_script_block")
     assert _check_rule_has_shell(bad_rule) == diagnostic
+
+
+def test_check_rule_has_log(
+    test_workflow: Workflow,
+) -> None:
+    """Test that we can report the absence of a docstring."""
+
+    good_rule = test_workflow.get_rule("good_rule")
+    assert _check_rule_has_log(good_rule) is None
+
+    diagnostic = SlippyDiagnostic(
+        range=CodeRange(start_line=65, start_character=5, end_line=65, end_character=10),
+        message="rule rule_with_no_log has no log",
+        code=SlippyCode.NO_LOG.value,
+    )
+    bad_rule = test_workflow.get_rule("rule_with_no_log")
+    assert _check_rule_has_log(bad_rule) == diagnostic
