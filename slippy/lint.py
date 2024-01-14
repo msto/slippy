@@ -5,7 +5,7 @@ from snakemake.rules import Rule
 from .codes import SlippyCode
 from .diagnostic import CodeRange
 from .diagnostic import SlippyDiagnostic
-from .utils import get_directive_lineno
+from .utils import get_directive_range
 from .utils import get_rule_lineno
 
 
@@ -63,20 +63,8 @@ def _check_rule_has_shell(rule: Rule) -> SlippyDiagnostic | None:
     else:
         raise ValueError(f"Rule {rule.name} does not declare a `shell`, `run`, or `script` block.")
 
-    lineno = get_directive_lineno(rule=rule, directive=directive)
-
-    # Account for non-standard indendation when identifying the start position of the directive
-    line = linecache.getline(rule.workflow.main_snakefile, lineno)
-    start_character = len(line) - len(line.lstrip()) + 1
-    end_character = start_character + len(directive)
-
     return SlippyDiagnostic(
-        range=CodeRange(
-            start_line=lineno,
-            start_character=start_character,
-            end_line=lineno,
-            end_character=end_character,
-        ),
+        range=get_directive_range(rule=rule, directive=directive),
         message=f"rule {rule} declares a `{directive}` block instead of a `shell` block",
         code=SlippyCode.NO_SHELL.value,
     )

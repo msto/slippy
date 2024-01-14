@@ -4,6 +4,8 @@ from pathlib import Path
 from snakemake.rules import Rule
 from snakemake.workflow import Workflow
 
+from .diagnostic import CodeRange
+
 
 def load_workflow(snakefile: Path) -> Workflow:
     """
@@ -94,3 +96,29 @@ def get_directive_lineno(rule: Rule, directive: str) -> int:
 
         if line.strip() == f"{directive}:":
             return lineno
+
+
+def get_directive_range(rule: Rule, directive: str) -> CodeRange:
+    """
+    Get the range a directive is declared on.
+
+    This function highlights the name of the directive, e.g.
+    ```
+    rule foo:
+        input:
+        ^^^^^
+    ```
+    """
+    lineno = get_directive_lineno(rule=rule, directive=directive)
+
+    # Account for non-standard indendation when identifying the start position of the directive
+    line = linecache.getline(rule.workflow.main_snakefile, lineno)
+    start_character = len(line) - len(line.lstrip()) + 1
+    end_character = start_character + len(directive)
+
+    return CodeRange(
+        start_line=lineno,
+        start_character=start_character,
+        end_line=lineno,
+        end_character=end_character,
+    )
