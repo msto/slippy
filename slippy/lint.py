@@ -23,9 +23,11 @@ def _check_rule_has_docstring(rule: Rule) -> SlippyDiagnostic | None:
     Check that a rule has a docstring.
     """
 
+    # Lint passes if we have a docstring
     if rule.docstring is not None:
         return None
 
+    # Otherwise, report where it occurs.
     lineno = get_rule_lineno(rule)
 
     # Taking a shortcut for now to avoid parsing the line in question, but this should be
@@ -51,9 +53,11 @@ def _check_rule_has_shell(rule: Rule) -> SlippyDiagnostic | None:
     Check that a rule has a `shell` block, and does not define a `run` or `script` block instead.
     """
 
+    # Lint passes if the rule declares a `shell` block
     if rule.shellcmd is not None:
         return None
 
+    # Otherwise, figure out if we have a `run` or `script` block and report accordingly
     if rule.script is not None:
         directive = "script"
     elif rule.run_func is not None:
@@ -77,6 +81,7 @@ def _check_rule_has_log(rule: Rule) -> SlippyDiagnostic | None:
     if rule.shellcmd is None:
         return None
 
+    # Lint passes if at least one log file is declared
     # TODO: flag multiple logs? I don't know why this is declared as a namedlist
     if len(rule.log) > 0:
         return None
