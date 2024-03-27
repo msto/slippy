@@ -93,6 +93,25 @@ def _check_rule_has_log(rule: Rule) -> SlippyDiagnostic | None:
     )
 
 
+def _check_rule_has_log_redirection(rule: Rule) -> SlippyDiagnostic | None:
+    """
+    Check that stdout/stderr inside a shell block are redirected to log.
+    """
+
+    # We only run this lint on rules that pass earlier lints:
+    # - rules with a shell block, enforced by `_check_rule_has_shell()`
+    # - rules with a declared log, enforced by `_check_rule_has_log()`
+    if rule.shellcmd is None or len(rule.log) == 0:
+        return None
+
+    # Lint passes if the shell command is wrapped in a redirect to log 
+    # TODO: be more permissive? e.g. permit trailing semi-colon, or redirection of only stderr?
+    shellcmd = rule.shellcmd.strip()
+    if shellcmd.startswith('(') and shellcmd.endswith('&> {log}'):
+        return None
+    
+
+
 def _check_rule_inputs_are_named(rule: Rule) -> SlippyDiagnostic | None:
     """
     Check that all rule inputs are named.
