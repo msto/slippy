@@ -59,6 +59,10 @@ warn_unused_ignores         = true
 module = "defopt"
 ignore_missing_imports = true
 
+[[tool.mypy.overrides]]
+module = "snakemake.*"
+ignore_missing_imports = true
+
 [tool.pytest.ini_options]
 minversion = "7.4"
 addopts    = [
