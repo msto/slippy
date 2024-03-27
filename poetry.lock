@@ -12,17 +12,6 @@ files = [
 ]
 
 [[package]]
-name = "argparse-dataclass"
-version = "2.0.0"
-description = "Declarative CLIs with argparse and dataclasses"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "argparse_dataclass-2.0.0-py3-none-any.whl", hash = "sha256:3ffc8852a88d9d98d1364b4441a712491320afb91fb56049afd8a51d74bb52d2"},
-    {file = "argparse_dataclass-2.0.0.tar.gz", hash = "sha256:09ab641c914a2f12882337b9c3e5086196dbf2ee6bf0ef67895c74002cc9297f"},
-]
-
-[[package]]
 name = "attrs"
 version = "23.2.0"
 description = "Classes Without Boilerplate"
@@ -283,20 +272,6 @@ files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
-
-[[package]]
-name = "conda-inject"
-version = "1.3.1"
-description = "Helper functions for injecting a conda environment into the current python environment (by modifying sys.path, without actually changing the current python environment)."
-optional = false
-python-versions = ">=3.9,<4.0"
-files = [
-    {file = "conda_inject-1.3.1-py3-none-any.whl", hash = "sha256:0a106bb0ef3553e82b6e7ef343162305c44dad7789c1909eed1abe83548c7fc6"},
-    {file = "conda_inject-1.3.1.tar.gz", hash = "sha256:9e8d902230261beba74083aae12c2c5a395e29b408469fefadc8aaf51ee441e5"},
-]
-
-[package.dependencies]
-pyyaml = ">=6.0,<7.0"
 
 [[package]]
 name = "configargparse"
@@ -709,59 +684,6 @@ files = [
     {file = "idna-3.6-py3-none-any.whl", hash = "sha256:c05567e9c24a6b9faaa835c4821bad0590fbb9d5779e7caa6e1cc4978e7eb24f"},
     {file = "idna-3.6.tar.gz", hash = "sha256:9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"},
 ]
-
-[[package]]
-name = "immutables"
-version = "0.20"
-description = "Immutable Collections"
-optional = false
-python-versions = ">=3.8.0"
-files = [
-    {file = "immutables-0.20-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:dea0ae4d7f31b145c18c16badeebc2f039d09411be4a8febb86e1244cf7f1ce0"},
-    {file = "immutables-0.20-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:2dd0dcef2f8d4523d34dbe1d2b7804b3d2a51fddbd104aad13f506a838a2ea15"},
-    {file = "immutables-0.20-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:393dde58ffd6b4c089ffdf4cef5fe73dad37ce4681acffade5f5d5935ec23c93"},
-    {file = "immutables-0.20-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c1214b5a175df783662b7de94b4a82db55cc0ee206dd072fa9e279fb8895d8df"},
-    {file = "immutables-0.20-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:2761e3dc2a6406943ce77b3505e9b3c1187846de65d7247548dc7edaa202fcba"},
-    {file = "immutables-0.20-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:2bcea81e7516bd823b4ed16f4f794531097888675be13e833b1cc946370d5237"},
-    {file = "immutables-0.20-cp310-cp310-win32.whl", hash = "sha256:d828e7580f1fa203ddeab0b5e91f44bf95706e7f283ca9fbbcf0ae08f63d3084"},
-    {file = "immutables-0.20-cp310-cp310-win_amd64.whl", hash = "sha256:380e2957ba3d63422b2f3fbbff0547c7bbe6479d611d3635c6411005a4264525"},
-    {file = "immutables-0.20-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:532be32c7a25dae6cade28825c76d3004cf4d166a0bfacf04bda16056d59ba26"},
-    {file = "immutables-0.20-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:5302ce9c7827f8300f3dc34a695abb71e4a32bab09e65e5ad6e454785383347f"},
-    {file = "immutables-0.20-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b51aec54b571ae466113509d4dc79a2808dc2ae9263b71fd6b37778cb49eb292"},
-    {file = "immutables-0.20-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:47f56aea56e597ecf6631f24a4e26007b6a5f4fe30278b96eb90bc1f60506164"},
-    {file = "immutables-0.20-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:085ac48ee3eef7baf070f181cae574489bbf65930a83ec5bbd65c9940d625db3"},
-    {file = "immutables-0.20-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:f063f53b5c0e8f541ae381f1d828f3d05bbed766a2d6c817f9218b8b37a4cb66"},
-    {file = "immutables-0.20-cp311-cp311-win32.whl", hash = "sha256:b0436cc831b47e26bef637bcf143cf0273e49946cfb7c28c44486d70513a3080"},
-    {file = "immutables-0.20-cp311-cp311-win_amd64.whl", hash = "sha256:5bb32aee1ea16fbb90f58f8bd96016bca87aba0a8e574e5fa218d0d83b142851"},
-    {file = "immutables-0.20-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:4ba726b7a3a696b9d4b122fa2c956bc68e866f3df1b92765060c88c64410ff82"},
-    {file = "immutables-0.20-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:5a88adf1dcc9d8ab07dba5e74deefcd5b5e38bc677815cbf9365dc43b69f1f08"},
-    {file = "immutables-0.20-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1009a4e00e2e69a9b40c2f1272795f5a06ad72c9bf4638594d518e9cbd7a721a"},
-    {file = "immutables-0.20-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:96899994842c37cf4b9d6d2bedf685aae7810bd73f1538f8cba5426e2d65cb85"},
-    {file = "immutables-0.20-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:a606410b2ccb6ae339c3f26cccc9a92bcb16dc06f935d51edfd8ca68cf687e50"},
-    {file = "immutables-0.20-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:e8e82754f72823085643a2c0e6a4c489b806613e94af205825fa81df2ba147a0"},
-    {file = "immutables-0.20-cp312-cp312-win32.whl", hash = "sha256:525fb361bd7edc8a891633928d549713af8090c79c25af5cc06eb90b48cb3c64"},
-    {file = "immutables-0.20-cp312-cp312-win_amd64.whl", hash = "sha256:a82afc3945e9ceb9bcd416dc4ed9b72f92760c42787e26de50610a8b81d48120"},
-    {file = "immutables-0.20-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:f17f25f21e82a1c349a61191cfb13e442a348b880b74cb01b00e0d1e848b63f4"},
-    {file = "immutables-0.20-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:65954eb861c61af48debb1507518d45ae7d594b4fba7282785a70b48c5f51f9b"},
-    {file = "immutables-0.20-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:62f8a7a22939278127b7a206d05679b268b9cf665437125625348e902617cbad"},
-    {file = "immutables-0.20-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ac86f4372f4cfaa00206c12472fd3a78753092279e0552b7e1880944d71b04fe"},
-    {file = "immutables-0.20-cp38-cp38-musllinux_1_1_aarch64.whl", hash = "sha256:e771198edc11a9e02ffa693911b3918c6cde0b64ad2e6672b076dbe005557ad8"},
-    {file = "immutables-0.20-cp38-cp38-musllinux_1_1_x86_64.whl", hash = "sha256:fc739fc07cff5df2e4f31addbd48660b5ac0da56e9f719f8bb45da8ddd632c63"},
-    {file = "immutables-0.20-cp38-cp38-win32.whl", hash = "sha256:c086ccb44d9d3824b9bf816365d10b1b82837efc7119f8bab56bd7a27ed805a9"},
-    {file = "immutables-0.20-cp38-cp38-win_amd64.whl", hash = "sha256:9cd2ee9c10bf00be3c94eb51854bc0b761326bd0a7ea0dad4272a3f182269ae6"},
-    {file = "immutables-0.20-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:d4f78cb748261f852953620ed991de74972446fd484ec69377a41e2f1a1beb75"},
-    {file = "immutables-0.20-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:d6449186ea91b7c17ec8e7bd9bf059858298b1db5c053f5d27de8eba077578ce"},
-    {file = "immutables-0.20-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:85dd9765b068f7beb297553fddfcf7f904bd58a184c520830a106a58f0c9bfb4"},
-    {file = "immutables-0.20-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f349a7e0327b92dcefb863e49ace086f2f26e6689a4e022c98720c6e9696e763"},
-    {file = "immutables-0.20-cp39-cp39-musllinux_1_1_aarch64.whl", hash = "sha256:e3a5462f6d3549bbf7d02ce929fb0cb6df9539445f0589105de4e8b99b906e69"},
-    {file = "immutables-0.20-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:cc51a01a64a6d2cd7db210a49ad010c2ac2e9e026745f23fd31e0784096dcfff"},
-    {file = "immutables-0.20-cp39-cp39-win32.whl", hash = "sha256:83794712f0507416f2818edc63f84305358b8656a93e5b9e2ab056d9803c7507"},
-    {file = "immutables-0.20-cp39-cp39-win_amd64.whl", hash = "sha256:2837b1078abc66d9f009bee9085cf62515d5516af9a5c9ea2751847e16efd236"},
-    {file = "immutables-0.20.tar.gz", hash = "sha256:1d2f83e6a6a8455466cd97b9a90e2b4f7864648616dfa6b19d18f49badac3876"},
-]
-
-[package.extras]
-test = ["flake8 (>=5.0,<6.0)", "mypy (>=1.4,<2.0)", "pycodestyle (>=2.9,<3.0)", "pytest (>=7.4,<8.0)"]
 
 [[package]]
 name = "importlib-metadata"
@@ -1929,113 +1851,45 @@ files = [
 
 [[package]]
 name = "snakemake"
-version = "8.10.4"
+version = "7.32.4"
 description = "Workflow management system to create reproducible and scalable data analyses"
 optional = false
-python-versions = ">=3.11"
+python-versions = ">=3.7"
 files = [
-    {file = "snakemake-8.10.4-py3-none-any.whl", hash = "sha256:db568a21d9ce7234cb2b1a03091abb7dbdab358fdaba20663312c6964dafbd09"},
-    {file = "snakemake-8.10.4.tar.gz", hash = "sha256:8228185f85a1e861c3e8a828f405d575a37dcdcf80b82fc681958a0e85a9ebe6"},
+    {file = "snakemake-7.32.4.tar.gz", hash = "sha256:fdc3f15dd7b06fabb7da30d460e0a3b1fba08e4ea91f9c32c47a83705cdc7b6e"},
 ]
 
 [package.dependencies]
 appdirs = "*"
-conda-inject = ">=1.3.1,<2.0"
 configargparse = "*"
-connection-pool = ">=0.0.3"
+connection_pool = ">=0.0.3"
 datrie = "*"
 docutils = "*"
-dpath = ">=2.1.6,<3.0.0"
 gitpython = "*"
 humanfriendly = "*"
-immutables = "*"
 jinja2 = ">=3.0,<4.0"
 jsonschema = "*"
 nbformat = "*"
 packaging = "*"
 psutil = "*"
-pulp = ">=2.3.1,<2.9"
+pulp = ">=2.0"
 pyyaml = "*"
-requests = ">=2.8.1,<3.0"
+requests = "*"
 reretry = "*"
-smart-open = ">=3.0,<8.0"
-snakemake-interface-common = ">=1.17.0,<2.0"
-snakemake-interface-executor-plugins = ">=9.1.0,<10.0"
-snakemake-interface-report-plugins = ">=1.0.0,<2.0.0"
-snakemake-interface-storage-plugins = ">=3.1.0,<4.0"
+smart_open = ">=3.0"
 stopit = "*"
 tabulate = "*"
 throttler = "*"
-toposort = ">=1.10,<2.0"
+toposort = ">=1.10"
 wrapt = "*"
 yte = ">=1.5.1,<2.0"
 
 [package.extras]
-messaging = ["slack-sdk"]
+azure = ["azure-batch", "azure-core", "azure-identity", "azure-mgmt-batch", "azure-storage-blob"]
+google-cloud = ["google-api-python-client", "google-cloud-storage", "google-crc32c", "oauth2client"]
+messaging = ["slacker"]
 pep = ["eido", "peppy"]
 reports = ["pygments"]
-
-[[package]]
-name = "snakemake-interface-common"
-version = "1.17.1"
-description = "Common functions and classes for Snakemake and its plugins"
-optional = false
-python-versions = ">=3.8,<4.0"
-files = [
-    {file = "snakemake_interface_common-1.17.1-py3-none-any.whl", hash = "sha256:2fdc4f2d778cad5284e83f35d1c2328b08cd6b8b9b29e522107f1a3c5ae771da"},
-    {file = "snakemake_interface_common-1.17.1.tar.gz", hash = "sha256:555c8218d9b68ddc1046f94a517e7d0f22e15bdc839d6ce149608d8ec137b9ae"},
-]
-
-[package.dependencies]
-argparse-dataclass = ">=2.0.0,<3.0.0"
-ConfigArgParse = ">=1.7,<2.0"
-
-[[package]]
-name = "snakemake-interface-executor-plugins"
-version = "9.1.0"
-description = "This package provides a stable interface for interactions between Snakemake and its executor plugins."
-optional = false
-python-versions = "<4.0,>=3.11"
-files = [
-    {file = "snakemake_interface_executor_plugins-9.1.0-py3-none-any.whl", hash = "sha256:102d06304bc0b63bc1dcdf0e1b07692e6da197607483243245e21a1cbe15b5f0"},
-    {file = "snakemake_interface_executor_plugins-9.1.0.tar.gz", hash = "sha256:26da734f7399f5963c5bc7cbcbb51f2d61e3c76298010418d76c48dda92aeb2f"},
-]
-
-[package.dependencies]
-argparse-dataclass = ">=2.0.0,<3.0.0"
-snakemake-interface-common = ">=1.12.0,<2.0.0"
-throttler = ">=1.2.2,<2.0.0"
-
-[[package]]
-name = "snakemake-interface-report-plugins"
-version = "1.0.0"
-description = "The interface for Snakemake report plugins."
-optional = false
-python-versions = ">=3.11,<4.0"
-files = [
-    {file = "snakemake_interface_report_plugins-1.0.0-py3-none-any.whl", hash = "sha256:e39cf2f27a36bda788dd97ede8fd056f887e00dca2d14ffea91dbc696d1f17cd"},
-    {file = "snakemake_interface_report_plugins-1.0.0.tar.gz", hash = "sha256:02311cdc4bebab2a1c28469b5e6d5c6ac6e9c66998ad4e4b3229f1472127490f"},
-]
-
-[package.dependencies]
-snakemake-interface-common = ">=1.16.0,<2.0.0"
-
-[[package]]
-name = "snakemake-interface-storage-plugins"
-version = "3.1.1"
-description = "This package provides a stable interface for interactions between Snakemake and its storage plugins."
-optional = false
-python-versions = ">=3.11,<4.0"
-files = [
-    {file = "snakemake_interface_storage_plugins-3.1.1-py3-none-any.whl", hash = "sha256:fce880593273073b0707438792252bac8ad454ebef3a22f9ea7b52368670b1be"},
-    {file = "snakemake_interface_storage_plugins-3.1.1.tar.gz", hash = "sha256:d4d2b72ac964f12c5ba343639499c797316d6368dda471fba63610aec8e77cbb"},
-]
-
-[package.dependencies]
-reretry = ">=0.11.8,<0.12.0"
-snakemake-interface-common = ">=1.12.0,<2.0.0"
-throttler = ">=1.2.2,<2.0.0"
-wrapt = ">=1.15.0,<2.0.0"
 
 [[package]]
 name = "sphinxcontrib-napoleon"
@@ -2372,4 +2226,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "1a0ba2a22dc6df71a1617d1e62e515f1691cc3bbd5c91eb1fed122c6a21e9ecb"
+content-hash = "9584bc9e4c8049800fa78a1af1a00cc09439cb9fdf38bda9bcbe275fcaa6493c"

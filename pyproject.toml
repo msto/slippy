@@ -18,7 +18,7 @@ classifiers   = [
 [tool.poetry.dependencies]
 python    = "^3.11"
 defopt    = "^6.4.0"
-snakemake = "^8.10.4"
+snakemake = "^7.0.0"
 
 [tool.poetry.group.dev.dependencies]
 poetry      = "^1.8.2"
