@@ -12,7 +12,7 @@ def load_workflow(snakefile: Path) -> Workflow:
     Load a workflow from a snakefile.
 
     Simply creating a `Workflow` object from a snakefile does not parse the workflow - it is
-    necssary to explicitly include the snakefile as well.
+    necessary to explicitly include the snakefile as well.
 
     This function is just a simple helper to avoid repetition and safeguard against forgetting the
     `include`.
