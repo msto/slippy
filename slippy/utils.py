@@ -47,7 +47,12 @@ def get_rule_lineno(rule: Rule) -> int:
         The line number of the rule.
     """
 
-    return rule.workflow.linemaps[rule.snakefile][rule.lineno]
+    lineno = rule.workflow.linemaps[rule.snakefile][rule.lineno]
+
+    if not isinstance(lineno, int):
+        raise TypeError("Snakemake workflow linemaps should only have `int` values.")
+
+    return lineno
 
 
 # TODO: use enum instead of str?
